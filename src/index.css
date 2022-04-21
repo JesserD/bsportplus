@@ -11,3 +11,28 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+
+.skip {
+  background-color: #fed7d7;
+  position: absolute;
+  top: -1000px;
+  left: -1000px;
+  height: 1px;
+  width: 1px;
+  text-align: center;
+  transform: translateY(-100%);
+  transition: transform 0.3s;
+}
+
+a.skip:active,
+a.skip:focus,
+a.skip:hover {
+  right: 0;
+  left: 0;
+  top: 0;
+  width: auto;
+  height: auto;
+  transform: translateY(0%);
+}
