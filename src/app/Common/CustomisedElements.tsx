@@ -21,7 +21,7 @@ export const H5 = ({ children }: React.PropsWithChildren<HeadingProps>) => {
 };
 export const PageDiv = ({ children }: React.PropsWithChildren<FlexProps>) => {
     return (<MotionFlex variants={itemAnimationX} initial={'hidden'}
-        animate={'visible'} flexDirection='column' maxW='70%' p={5}
+        animate={'visible'} flexDirection='column' maxW={{ base: '95%', md: '70%' }} p={5}
         bg={'white'} rounded={'3xl'} boxShadow={'2xl'}>{children}
     </MotionFlex>);
 };
