@@ -1,4 +1,4 @@
-// @ts-nocheck
+
 import {
     Box,
     Flex,
@@ -7,7 +7,7 @@ import {
     Stack,
     Collapse,
     Icon,
-    Link,
+    Link as ChakraLink,
     Popover,
     PopoverContent,
     useColorModeValue,
@@ -15,7 +15,7 @@ import {
     useDisclosure,
     Image,
     PopoverTrigger,
-    FlexProps,
+    BoxProps,
 } from '@chakra-ui/react';
 import {
     HamburgerIcon,
@@ -23,6 +23,7 @@ import {
     ChevronDownIcon,
     ChevronRightIcon,
 } from '@chakra-ui/icons';
+import { Link } from 'react-router-dom';
 import Data from '../../data/BsportPlus.json';
 
 interface NavItem {
@@ -35,11 +36,11 @@ interface NavItem {
 const { Menu } = Data;
 const NAV_ITEMS: Array<NavItem> = Menu;
 
-export default function WithSubnavigation(Props: FlexProps) {
+export default function WithSubnavigation(Props: BoxProps) {
     const { isOpen, onToggle } = useDisclosure();
 
     return (
-        <Box {...Props} style={{position: 'sticky', top: '0', zIndex: '1'}}>
+        <Box {...Props} style={{ position: 'sticky', top: '0', zIndex: '1' }}>
             <Flex bg={useColorModeValue('red.100', 'gray.800')} color={useColorModeValue('gray.600', 'white')} minH={'60px'} py={{ base: 2 }} px={{ base: 4 }} borderBottom={1} borderStyle={'solid'} borderColor={useColorModeValue('gray.200', 'gray.900')} align={'center'}>
                 <Flex
                     flex={{ base: 1, md: 'auto' }}
@@ -57,7 +58,7 @@ export default function WithSubnavigation(Props: FlexProps) {
                         textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
                         fontFamily={'heading'}
                         color={useColorModeValue('gray.800', 'white')}>
-                        <Image alt='Bsport+ logo' boxSize='30px' src={'assets/logo192.png'} />
+                        <Image alt='Bsport+ logo' boxSize='30px' src={'/assets/logo192.png'} />
                     </Text>
                     <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
                         <DesktopNav />
@@ -77,27 +78,29 @@ const DesktopNav = () => {
     const linkHoverColor = useColorModeValue('gray.800', 'white');
     const popoverContentBgColor = useColorModeValue('white', 'gray.800');
 
-    return  (
+    return (
         <Stack direction={'row'} spacing={4}>
             {NAV_ITEMS.map((navItem) => (
                 <Box key={navItem.label}>
                     <Popover trigger={'hover'} placement={'bottom-start'}>
-                
-                        <PopoverTrigger>
-                            <Link
-                                p={2}
-                                href={navItem.href?.concat('#maincontent') ?? '#maincontent'}
-                                fontSize={'sm'}
-                                fontWeight={500}
-                                color={linkColor}
-                                _hover={{
-                                    textDecoration: 'none',
-                                    color: linkHoverColor,
-                                    bg: 'gray.100'
-                                }}>
-                                {navItem.label}
-                            </Link>
-                        </PopoverTrigger>
+                        {// @ts-ignore
+                            <PopoverTrigger>
+                                <ChakraLink
+                                    as={Link}
+                                    p={2}
+                                    to={navItem.href !== undefined ? navItem.href : ''}
+                                    fontSize={'sm'}
+                                    fontWeight={500}
+                                    color={linkColor}
+                                    _hover={{
+                                        textDecoration: 'none',
+                                        color: linkHoverColor,
+                                        bg: 'gray.100'
+                                    }}>
+                                    {navItem.label}
+                                </ChakraLink>
+                            </PopoverTrigger>
+                        }
 
                         {navItem.children && (
                             <PopoverContent
@@ -123,8 +126,9 @@ const DesktopNav = () => {
 
 const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
     return (
-        <Link
-            href={href?.concat('#maincontent')}
+        <ChakraLink
+            as={Link}
+            to={href !== undefined ? href : ''}
             role={'listitem'}
             display={'block'}
             p={2}
@@ -136,7 +140,7 @@ const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
                         transition={'all .3s ease'}
                         _groupHover={{ color: 'pink.400' }}
                         fontWeight={500}
-                        style={{color: 'black'}}>
+                        style={{ color: 'black' }}>
                         {label}
                     </Text>
                     <Text fontSize={'sm'}>{subLabel}</Text>
@@ -152,7 +156,7 @@ const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
                     <Icon color={'pink.400'} w={5} h={5} as={ChevronRightIcon} />
                 </Flex>
             </Stack>
-        </Link>
+        </ChakraLink>
     );
 };
 
@@ -177,7 +181,7 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
             <Flex
                 py={2}
                 as={Link}
-                href={href ?? '#'}
+                to={href !== undefined ? href : ''}
                 justify={'space-between'}
                 align={'center'}
                 _hover={{
@@ -209,9 +213,9 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
                     align={'start'}>
                     {children &&
                         children.map((child) => (
-                            <Link key={child.label} py={2} href={child.href}>
+                            <ChakraLink as={Link} fontWeight={600} key={child.label} py={2} to={child.href !== undefined ? child.href : ''}>
                                 {child.label}
-                            </Link>
+                            </ChakraLink>
                         ))}
                 </Stack>
             </Collapse>

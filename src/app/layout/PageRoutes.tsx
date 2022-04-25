@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import AboutUsPage from '../../pages/AboutUsPage';
 import AerobicAndStrengthExerciseProgram from '../../pages/Activities/AerobicAndStrengthExerciseProgram/AerobicAndStrengthExerciseProgram';
@@ -6,33 +6,55 @@ import ExerciseAndNutriionAtWork from '../../pages/Activities/ExerciseAndNutriio
 import ExerciseAtHome from '../../pages/Activities/ExerciseAtHome/ExerciseAtHome';
 import ExerciseAtWork from '../../pages/Activities/ExerciseAtWork/ExerciseAtWork';
 import WeeklyFitnessProgram from '../../pages/Activities/WeeklyFitnessProgram/WeeklyFitnessProgram';
-import CardPage from '../../pages/CardPage';
 import ContactUsPage from '../../pages/ContactUsPage';
 import HomePage from '../../pages/HomePage';
+import { ObjectListPage } from '../../pages/ObjectListPage';
 import RandomPage from '../../pages/RandomPage';
+import { MenuItem, ActivityKey } from '../interfaces/Interfaces';
+import Data from '../../data/BsportPlus.json';
 
-const PageRoutes = () => {
+interface Props {
+    paths: Partial<MenuItem>[];
+}
+
+const PageRoutes = ({ paths }: Props) => {
+    const { ExampleOfActivites: { Activites }, ExampleOfExcerciseProgram: { Exercise } } = Data;
+
+    const ToActivityKey = (input: string | undefined) => {
+        if (input === undefined || !(input in ActivityKey))
+            return ActivityKey.nonExistentCategory;
+        // @ts-expect-error 
+        else return ActivityKey[input];
+    };
     return (
         <Routes>
-            <Route path='/' element={<HomePage />} />
-            <Route path='/Disabilities' element={<CardPage category='Disabilities' />} />
-            <Route path='/Challenges' element={<CardPage category='Challenges' />} />
-            <Route path='/Needs' element={<CardPage category='Needs' />} />
-            <Route path='/KeySuccessFactors' element={<CardPage category='Key Success Factors' />} />
-            <Route path='/ActivityTitles' element={<CardPage category='Activity Titles' />} />
-
-            <Route path='/Activities' element={<CardPage category='Activities' />} />
+            {paths.map((item, index) => {
+                if (item.href === undefined) {
+                    console.warn('item.href is undefinied!');
+                    return <Fragment key={index}>Opps</Fragment>;
+                }
+                if (item.href === '/')
+                    return <Route key={item.href + index} path={item.href} element={<HomePage />} />;
+                else if (item.href === '/Activities')
+                    return <Route key={item.href + index} path={item.href} element={<ObjectListPage category={ToActivityKey(item.content)} exercises={Exercise} />} />;
+                else if (item.href === '/Random')
+                    return <Route key={item.href + index} path={item.href} element={<RandomPage activites={Activites} />} />;
+                else if (item.href === '/AboutUs')
+                    return <Route key={item.href + index} path={item.href} element={<AboutUsPage />} />;
+                else if (item.href === '/ContactUs')
+                    return <Route key={item.href + index} path={item.href} element={<ContactUsPage />} />;
+                else
+                    return <Route key={item.href + index} path={item.href} element={<ObjectListPage category={ToActivityKey(item.content)} activities={Activites} />} />;
+            })}
             <Route path='/Activities/ExerciseAtWork' element={<ExerciseAtWork />} />
             <Route path='/Activities/ExerciseAtHome' element={<ExerciseAtHome />} />
             <Route path='/Activities/ExerciseAndNutriionAtWork' element={<ExerciseAndNutriionAtWork />} />
             <Route path='/Activities/AerobicAndStrengthExerciseProgram' element={<AerobicAndStrengthExerciseProgram />} />
             <Route path='/Activities/WeeklyFitnessProgram' element={<WeeklyFitnessProgram />} />
-
-            <Route path='/Random' element={<RandomPage />} />
-            <Route path='/AboutUs' element={<AboutUsPage />} />
-            <Route path='/ContactUs' element={<ContactUsPage />} />
         </Routes>
     );
 };
+
+
 
 export default PageRoutes;

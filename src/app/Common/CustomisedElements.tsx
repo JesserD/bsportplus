@@ -1,5 +1,7 @@
-import { Flex, FlexProps, Heading, UnorderedList, OrderedList, HeadingProps, ListProps, chakra } from '@chakra-ui/react';
-import * as React from 'react';
+import { ExternalLinkIcon } from '@chakra-ui/icons';
+import { FlexProps, Heading, UnorderedList, OrderedList, HeadingProps, ListProps, chakra, Link, LinkProps } from '@chakra-ui/react';
+import React from 'react';
+import { itemAnimationX, MotionFlex } from './AnimatedComponents';
 import * as Styles from './MyStyles';
 
 export const H1 = ({ children }: React.PropsWithChildren<HeadingProps>) => {
@@ -18,7 +20,10 @@ export const H5 = ({ children }: React.PropsWithChildren<HeadingProps>) => {
     return (<Heading as={'h5'} style={Styles.h5Styles}>{children}</Heading>);
 };
 export const PageDiv = ({ children }: React.PropsWithChildren<FlexProps>) => {
-    return (<Flex flexDirection='column' maxW='60%' p={5}>{children}</Flex>);
+    return (<MotionFlex variants={itemAnimationX} initial={'hidden'}
+        animate={'visible'} flexDirection='column' maxW='70%' p={5}
+        bg={'white'} rounded={'3xl'} boxShadow={'2xl'}>{children}
+    </MotionFlex>);
 };
 export const P = ({ children }: React.PropsWithChildren<any>) => {
     return (<chakra.p style={Styles.pStyles}>{children}</chakra.p>);
@@ -53,6 +58,6 @@ export const Dt = ({ children }: React.PropsWithChildren<React.ReactNode>) => {
 export const Dd = ({ children }: React.PropsWithChildren<React.ReactNode>) => {
     return (<dd style={Styles.ulStyles}>{children}</dd>);
 };
-export const A = ({ href, children }: React.PropsWithChildren<React.AnchorHTMLAttributes<string>>) => {
-    return (<a href={href}>{children}</a>);
+export const A = ({ href, children }: React.PropsWithChildren<LinkProps>) => {
+    return (<Link href={href} isExternal _hover={{ bg: 'red.100' }}>{children} <ExternalLinkIcon mx='2px' /></Link>);
 };

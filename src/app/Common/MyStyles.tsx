@@ -52,6 +52,7 @@ export const pStyles: CSS.Properties = {
   padding: '0.5rem',
   fontFamily: 'times-new-roman',
   fontSize: '1.3rem',
+  color: '#000000'
 };
 
 export const ulStyles: CSS.Properties = {

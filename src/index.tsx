@@ -4,6 +4,7 @@ import './index.css';
 import App from './app/layout/App';
 import { ChakraProvider } from '@chakra-ui/react';
 import { BrowserRouter } from 'react-router-dom';
+import Data from './data/BsportPlus.json';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -11,7 +12,7 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <ChakraProvider>
-      <BrowserRouter>
+      <BrowserRouter basename={Data.StartUrl}>
         <App />
       </BrowserRouter>
     </ChakraProvider>
