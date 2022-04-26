@@ -41,7 +41,7 @@ const SophisticatedActivityCard = ({ activity, category }: Props) => {
                     {partner}
                 </chakra.p>
             </Flex>
-            <Image src={logo} height={'100px'} w={'100px'} alt='' m={{ base: '0 0 35px 0', md: '0 0 0 50px' }} />
+            <Image src={process.env.PUBLIC_URL + logo} height={'100px'} w={'100px'} alt='' m={{ base: '0 0 35px 0', md: '0 0 0 50px' }} />
         </MotionFlex>
     );
 };

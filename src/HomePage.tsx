@@ -4,7 +4,7 @@ import {
 } from '@chakra-ui/react';
 import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { itemAnimationX, MotionFlex } from '../app/Common/AnimatedComponents';
+import { itemAnimationX, MotionFlex } from './app/Common/AnimatedComponents';
 
 export default function CallToActionWithVideo() {
     const [isLargerThan768] = useMediaQuery('(min-width: 768px)');

@@ -17,8 +17,7 @@
         },
         {"label": "Activities", "href": "/Activities" , "content":"title"},
         {"label": "Random", "href": "/Random", "content":""},
-        {"label": "About us", "href": "/AboutUs", "content":""},
-        {"label": "Contact us", "href": "/ContactUs", "content":""}
+        {"label": "About us", "href": "/AboutUs", "content":""}
     ],
     "ExampleOfActivites":{
         "numberOfActivites":9,

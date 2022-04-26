@@ -12,7 +12,7 @@ const App = () => {
   return (
     <Flex direction={'column'} justifyContent={'center'} w={'full'} bgGradient={'linear(to-l, #ee9ca7, #ffdde1)'}>
       <SkipToContent />
-      <Image src={'/assets/BsportWallpaper.jpg'} alt='' />
+      <Image src={process.env.PUBLIC_URL+'/assets/BsportWallpaper.jpg'} alt='' />
       <NavBar />
       <VStack as={'main'} id={'maincontent'} my={12} >
         <PageRoutes paths={Paths} />

@@ -1,5 +1,6 @@
 {
   "name": "bsportplus",
+  "homepage": "https://www.bsportplus.eu/capacitybuilding/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

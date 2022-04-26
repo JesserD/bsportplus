@@ -42,7 +42,7 @@ export default function WithSubnavigation(Props: BoxProps) {
     return (
         <Box {...Props} style={{ position: 'sticky', top: '0', zIndex: '1' }}>
             <Flex bg={useColorModeValue('red.100', 'gray.800')} color={useColorModeValue('gray.600', 'white')} minH={'60px'} py={{ base: 2 }} px={{ base: 4 }} borderBottom={1} borderStyle={'solid'} borderColor={useColorModeValue('gray.200', 'gray.900')} align={'center'}>
-                <Flex
+                <Flex 
                     flex={{ base: 1, md: 'auto' }}
                     ml={{ base: -2 }}
                     display={{ base: 'flex', md: 'none' }}>
@@ -53,12 +53,12 @@ export default function WithSubnavigation(Props: BoxProps) {
                     />
                 </Flex>
 
-                <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
+                <Flex flex={{ base: 1 }} justifyContent={'center'}>
                     <Text
                         textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
                         fontFamily={'heading'}
                         color={useColorModeValue('gray.800', 'white')}>
-                        <Image alt='Bsport+ logo' boxSize='30px' src={'/assets/logo192.png'} />
+                        <Image alt='Bsport+ logo' boxSize='30px' src={process.env.PUBLIC_URL + '/assets/logo192.png'} />
                     </Text>
                     <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
                         <DesktopNav />

@@ -7,8 +7,8 @@ interface Props {
 }
 
 const RandomPage = ({ activites }: Props) => {
-    const randomIntList = GenerateIntList(0, activites.length - 1, 4);
-    const categories: (keyof Activity)[] = ['targetGroup', 'challenges', 'needs', 'keySuccessFactors'];
+    const randomIntList = GenerateIntList(0, activites.length - 1, 6);
+    const categories: (keyof Activity)[] = ['targetGroup', 'challenges', 'needs', 'keySuccessFactors', 'indicators', 'stakeholders'];
     const randomActivities = randomIntList.map(i => activites[i]);
     return (<ActivityList categories={categories} activities={randomActivities} />);
 };
