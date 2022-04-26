@@ -18,8 +18,8 @@ const SophisticatedActivityCard = ({ activity, category }: Props) => {
             description='Make sure to add a new card to support the given key of activity' />;
 
     return (
-        <MotionFlex variants={itemAnimationY} maxW={'640px'} width={'full'} bg={'white'} rounded={'2xl'} boxShadow={'lg'}
-            justifyContent={'space-between'} w={'full'} h={'full'} p={10}
+        <MotionFlex variants={itemAnimationY} maxW={'640px'} width={'full'} bg={'white'} boxShadow={'lg'}
+            justifyContent={'space-between'} w={'full'} h={'full'} p={10} rounded={'2xl'}
             direction={{ base: 'column-reverse', md: 'row' }} alignItems={'center'}>
             <Flex direction={'column'} h={'inherit'} gap={2}>
                 <Flex as={UnorderedList} direction={'column'} spacing={2}>
