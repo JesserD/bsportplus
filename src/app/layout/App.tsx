@@ -1,7 +1,7 @@
 import { Image, Flex, VStack } from '@chakra-ui/react';
 import React from 'react';
 import NavBar from './NavBar';
-import PageRoutes from './PageRoutes';
+import RoutesComponent from './RoutesComponent';
 import SkipToContent from './SkipToContent';
 import Data from '../../data/BsportPlus.json';
 import { MenuItem } from '../interfaces/Interfaces';
@@ -15,7 +15,7 @@ const App = () => {
       <Image src={process.env.PUBLIC_URL+'/assets/BsportWallpaper.jpg'} alt='' />
       <NavBar />
       <VStack as={'main'} id={'maincontent'} my={12} >
-        <PageRoutes paths={Paths} />
+        <RoutesComponent paths={Paths} />
         <Image alt='' src={'../assets/Erasmus-EU-logo.svg'} />
       </VStack>
     </Flex>

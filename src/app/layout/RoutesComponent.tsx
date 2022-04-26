@@ -16,7 +16,7 @@ interface Props {
     paths: Partial<MenuItem>[];
 }
 
-const PageRoutes = ({ paths }: Props) => {
+const RoutesComponent = ({ paths }: Props) => {
     const { ExampleOfActivites: { Activites }, ExampleOfExcerciseProgram: { Exercise } } = Data;
 
     const ToActivityKey = (input: string | undefined) => {
@@ -54,4 +54,4 @@ const PageRoutes = ({ paths }: Props) => {
 
 
 
-export default PageRoutes;
+export default RoutesComponent;

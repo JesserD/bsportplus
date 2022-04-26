@@ -37,7 +37,7 @@ const SimpleActivityCard = ({ activity, category }: Props) => {
     str = FirstLetterToUpperCase (str);
     return str;
   };
-  console.log(ActivityKeys.length);
+
   return (
     <MotionFlex variants={itemAnimationY} maxW={'640px'} width={'full'} bg={'white'} rounded={'2xl'} boxShadow={'lg'} >
       <Link href={process.env.PUBLIC_URL + link} w={'full'} _hover={{ bg: 'red.200', }} rounded={'2xl'}>
