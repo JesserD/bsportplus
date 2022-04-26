@@ -1,6 +1,6 @@
 {
   "name": "bsportplus",
-  "homepage": "capacitybuilding/",
+  "homepage": "https://bsportplus.herokuapp.com/capacitybuilding/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
