@@ -1,8 +1,6 @@
 import { BoxProps, Box } from '@chakra-ui/react';
 import React, { PropsWithChildren } from 'react';
 
-
-
 const Ribbon = (Props: PropsWithChildren<BoxProps>) => {
 
     return (
@@ -12,7 +10,6 @@ const Ribbon = (Props: PropsWithChildren<BoxProps>) => {
             fontFamily={'sans-serif'} fontWeight={'bold'} color={'black'}
         > {Props.children}</Box >
     );
-
 };
 
 export default Ribbon;

@@ -10,11 +10,10 @@ interface Props {
   categories?: (keyof Activity)[];
   activities: Activity[];
 }
-const ActivityList = ({categories, category, activities }: Props) => {
-
-  const ReferToArray = (arr : (keyof Activity)[]) => {
+const ActivityList = ({ categories, category, activities }: Props) => {
+  const ReferToArray = (arr: (keyof Activity)[]) => {
     let result = false;
-    arr.forEach(e => {if (Array.isArray(activities[0][e])) result = true;});
+    arr.forEach(e => { if (Array.isArray(activities[0][e])) result = true; });
     return result;
   };
 

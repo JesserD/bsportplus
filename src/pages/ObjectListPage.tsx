@@ -1,4 +1,3 @@
-import React from 'react';
 import { Activity, ActivityKey, ExcerciseProgram } from '../app/interfaces/Interfaces';
 import ActivityList from '../features/activities/ActivityList';
 import ErrorToast from '../features/errors/ErrorToast';

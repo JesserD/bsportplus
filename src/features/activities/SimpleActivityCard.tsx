@@ -32,9 +32,9 @@ const SimpleActivityCard = ({ activity, category }: Props) => {
     return word.replace(/([A-Z])/g, ' $1').trim();
   };
 
-  const NormaliseString = (str :string) => {
+  const NormaliseString = (str: string) => {
     str = AddSpaceBeforeUpperCase(str);
-    str = FirstLetterToUpperCase (str);
+    str = FirstLetterToUpperCase(str);
     return str;
   };
 

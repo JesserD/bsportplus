@@ -6,7 +6,7 @@ import ExerciseAndNutriionAtWork from '../../pages/Activities/ExerciseAndNutriio
 import ExerciseAtHome from '../../pages/Activities/ExerciseAtHome/ExerciseAtHome';
 import ExerciseAtWork from '../../pages/Activities/ExerciseAtWork/ExerciseAtWork';
 import WeeklyFitnessProgram from '../../pages/Activities/WeeklyFitnessProgram/WeeklyFitnessProgram';
-import HomePage from '../../HomePage';
+import HomePage from '../../pages/HomePage';
 import { ObjectListPage } from '../../pages/ObjectListPage';
 import RandomPage from '../../pages/RandomPage';
 import { MenuItem, ActivityKey } from '../interfaces/Interfaces';
