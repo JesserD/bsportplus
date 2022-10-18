@@ -1,35 +1,3 @@
-export interface MenuItem {
-    label: string;
-    href?: string;
-    content: ActivityKey | string;
-    children?: MenuItem[];
-}
-export interface Activity {
-    title: string;
-    partner: string;
-    link: string;
-    logo: string
-    targetGroup: string;
-    needs: string;
-    challenges: string;
-    stakeholders: string;
-    indicators: string;
-    successstories: Source[];
-    references: Source[];
-    keySuccessFactors: string;
-}
-export interface Source {
-    title: string;
-    link?: string;
-}
-
-export interface ExcerciseProgram {
-    title: string;
-    partner: string;
-    link: string;
-    logo: string;
-}
-
 export enum ActivityKey {
   title = 'title',
   partner = 'partner',
@@ -45,4 +13,66 @@ export enum ActivityKey {
   keySuccessFactors = 'keySuccessFactors',
   nonExistentCategory = 'Make sure all content values in MenuItems are keys of Activity',
 };
+
+export interface BsportJsonData {
+    StartUrl:                  string;
+    Menu:                      MenuItem[];
+    ExampleOfActivites:        ExampleOfActivites;
+    ExampleOfExcerciseProgram: ExampleOfExcerciseProgram;
+}
+
+export interface ExampleOfActivites {
+    numberOfActivites: number;
+    Activites:         Activity[];
+}
+
+export interface Activity {
+    title:             string;
+    partner:           string;
+    link:              string;
+    logo:              string;
+    targetGroup:       string;
+    needs:             string;
+    challenges:        string;
+    stakeholders:      string;
+    indicators:        Indicator[];
+    successstories:    Successstory[];
+    references:        Reference[];
+    keySuccessFactors: string;
+}
+
+export interface Indicator {
+    description: string;
+    referenceId: string;
+}
+
+export interface Reference {
+    id:    string;
+    title: string;
+    link:  string;
+}
+
+export interface Successstory {
+    title: string;
+    link:  string;
+}
+
+export interface ExampleOfExcerciseProgram {
+    numberOfExercisePrograms: number;
+    Exercise: ExcerciseProgram[];
+}
+
+export interface ExcerciseProgram {
+    title:   string;
+    partner: string;
+    link:    string;
+    logo:    string;
+}
+
+export interface MenuItem {
+    label:     string;
+    href?:     string;
+    content:   string;
+    children?: MenuItem[];
+}
 

@@ -52,6 +52,4 @@ const RoutesComponent = ({ paths }: Props) => {
     );
 };
 
-
-
 export default RoutesComponent;

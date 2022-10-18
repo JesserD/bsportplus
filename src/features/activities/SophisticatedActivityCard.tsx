@@ -3,6 +3,7 @@ import { chakra, Flex, Image, Link as ChakraLink, ListItem, Spacer, UnorderedLis
 import React from 'react';
 import { itemAnimationY, MotionFlex } from '../../app/Common/AnimatedComponents';
 import { Activity } from '../../app/interfaces/Interfaces';
+import { isOfTypeIndicator } from '../../app/interfaces/TypeChecks';
 import ErrorToast from '../errors/ErrorToast';
 
 interface Props {
@@ -12,10 +13,15 @@ interface Props {
 
 const SophisticatedActivityCard = ({ activity, category }: Props) => {
     const { partner, logo } = activity;
+    const objKeys = Object.keys(activity[category][0]);
 
-    if (!Array.isArray(activity[category]) || Object.keys(activity[category][0]).length !== 2)
-        return <ErrorToast errorMsg='SophisticatedActivityCard does not support this key of activity'
-            description='Make sure to add a new card to support the given key of activity' />;
+    const containsTitleAndLink = (arr: string[]) => {
+        return arr.includes('title') && arr.includes('link') ? true : false;
+    };
+
+    if (!Array.isArray(activity[category]) || (!containsTitleAndLink(objKeys) && !isOfTypeIndicator(objKeys)))
+        return <ErrorToast errorMsg={`SophisticatedActivityCard does not support this key of activity [${category}] because either ${category} isn't an array or ${category} elements aren't of supported type`}
+            description={`Make sure to add a new card to support ${category}`} />;
 
     return (
         <MotionFlex variants={itemAnimationY} maxW={'640px'} width={'full'} bg={'white'} boxShadow={'lg'}
@@ -24,7 +30,7 @@ const SophisticatedActivityCard = ({ activity, category }: Props) => {
             <Flex direction={'column'} h={'inherit'} gap={2}>
                 <Flex as={UnorderedList} direction={'column'} spacing={2}>
                     {//@ts-expect-error
-                        activity[category].map(({ title, link }, index) => link === '' ?
+                        containsTitleAndLink(objKeys) && activity[category].map(({ title, link }, index) => link === '' ?
                             <ListItem key={link + index}>
                                 {title}
                             </ListItem>
@@ -35,6 +41,13 @@ const SophisticatedActivityCard = ({ activity, category }: Props) => {
                                 </ChakraLink>
                             </ListItem>
                         )}
+                    {isOfTypeIndicator(objKeys) && activity.indicators.map(({ description, referenceId }, index) => 
+                        <ListItem key={referenceId + index}>
+                           {activity.references.find(ref => ref.id === referenceId)?.link && <ChakraLink href={activity.references.find(ref => ref.id === referenceId)?.link} isExternal _hover={{ bg: 'red.100' }}>
+                                {description} <ExternalLinkIcon mx='2px' />
+                            </ChakraLink>}
+                        </ListItem>
+                    )}
                 </Flex>
                 <Spacer />
                 <chakra.p fontFamily={'Work Sans'} fontWeight={'bold'} fontSize={14} >
