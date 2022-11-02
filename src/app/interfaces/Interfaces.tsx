@@ -8,7 +8,7 @@ export enum ActivityKey {
   challenges = 'challenges',
   stakeholders = 'stakeholders',
   indicators = 'indicators',
-  successstories = 'successstories',
+  successStories = 'successStories',
   references = 'references',
   keySuccessFactors = 'keySuccessFactors',
   nonExistentCategory = 'Make sure all content values in MenuItems are keys of Activity',
@@ -36,7 +36,7 @@ export interface Activity {
     challenges:        string;
     stakeholders:      string;
     indicators:        Indicator[];
-    successstories:    Successstory[];
+    successStories:    SuccessStory[];
     references:        Reference[];
     keySuccessFactors: string;
 }
@@ -52,7 +52,7 @@ export interface Reference {
     link:  string;
 }
 
-export interface Successstory {
+export interface SuccessStory {
     title: string;
     link:  string;
 }

@@ -24,7 +24,7 @@ const ActivityList = ({ categories, category, activities }: Props) => {
             {category && NormaliseString(category)}
             {categories && 'Random Categories'}
           </Heading>
-          {category === ActivityKey.successstories &&
+          {category === ActivityKey.successStories &&
             <Text lineHeight={1.1} fontWeight={600} color={'red.500'} mx={'auto'} fontSize={{ base: 'xl', sm: '2xl', lg: '3xl' }}>
               Here you will find existing practices, stories, programmes that showcase best practice
             </Text>}

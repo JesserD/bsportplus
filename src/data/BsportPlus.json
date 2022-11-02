@@ -47,8 +47,8 @@
                 },
                 {
                     "label": "Success Stories",
-                    "href": "/SuccessStories",
-                    "content": "successstories"
+                    "href": "/successStories",
+                    "content": "successStories"
                 },
                 {
                     "label": "References",
@@ -115,7 +115,7 @@
                         "referenceId": "AddReferenceIdHere"
                     }
                 ],
-                "successstories": [
+                "successStories": [
                     {
                         "title": "Club Deportivo Duero",
                         "link": "https://www.facebook.com/CDduero/"
@@ -158,7 +158,7 @@
                         "referenceId": "AddReferenceIdHere"
                     }
                 ],
-                "successstories": [
+                "successStories": [
                     {
                         "title": "ZDS",
                         "link": "https://www.zds.si/sl/projekti/vseslovenska-kampanja-za-ozavescanje-delodajalcev-za-ohranjanje-in-krepitev-zdravja-zaposlenih-na-delovnem-mestu/"
@@ -224,7 +224,7 @@
                         "referenceId": "AddReferenceIdHere"
                     }
                 ],
-                "successstories": [
+                "successStories": [
                     {
                         "title": "Meta-Analysis of exercise with depressive symtoms",
                         "link": "https://pubmed.ncbi.nlm.nih.gov/32942633/"
@@ -294,7 +294,7 @@
                         "referenceId": "AddReferenceIdHere"
                     }
                 ],
-                "successstories": [
+                "successStories": [
                     {
                         "title": "Trail cycling",
                         "link": "https://cykelframjandet.se/stigcykling-for-unga-med-npf/"
@@ -337,7 +337,7 @@
                         "referenceId": "AddReferenceIdHere"
                     }
                 ],
-                "successstories": [
+                "successStories": [
                     {
                         "title": "Guide to Social prescription",
                         "link": "https://www.gov.uk/government/publications/social-prescribing-applying-all-our-health/social-prescribing-applying-all-our-health"
@@ -422,7 +422,7 @@
                         "referenceId": "AddReferenceIdHere"
                     }
                 ],
-                "successstories": [
+                "successStories": [
                     {
                         "title": "Stanford",
                         "link": "https://news.stanford.edu/2015/06/30/hiking-mental-health-063015/"
@@ -492,7 +492,7 @@
                         "referenceId": "AddReferenceIdHere"
                     }
                 ],
-                "successstories": [
+                "successStories": [
                     {
                         "title": "Diabete Sport Training",
                         "link": "http://www.diabetesporttraining.it/il-progetto/"
@@ -541,7 +541,7 @@
                         "referenceId": "AddReferenceIdHere"
                     }
                 ],
-                "successstories": [
+                "successStories": [
                     {
                         "title": "Diabete Sport Training",
                         "link": "https://www.facebook.com/diabetesporttraining/"
@@ -671,7 +671,7 @@
                         "referenceId": "AddReferenceIdHere"
                     }
                 ],
-                "successstories": [
+                "successStories": [
                     {
                         "title": "Sport at Work",
                         "link": "https://www.sport.vlaanderen/sportophetwerk"
